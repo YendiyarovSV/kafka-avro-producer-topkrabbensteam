@@ -20,7 +20,7 @@ else:
 
 setup(
     name='kafka-avro-producer-topkrabbensteam',
-    version='1.0',
+    version='1.2',
 
     description='Kafka (produce messages) using Apache Avro schemas',
     long_description=long_description,
@@ -54,10 +54,10 @@ setup(
     # simple. Or you can use find_packages().
     packages=find_packages(exclude=[]),
     package_data={'': ['README.md']},
-    install_requires=['avro_python3==1.8.2',
+    install_requires=["avro >= 1.8.0 ; python_version<'3.0'",
+                      "avro_python3 >= 1.8.0 ; python_version>'3.0'",
                       'datamountaineer_schemaregistry==0.3',
-                      'avro_gen_topkrabbensteam==0.0.2',
-                      'avro==1.8.2',
+                      'avro_gen_topkrabbensteam==0.0.2',                   
                       'fastavro==0.14.11',
                       'kafka-python==1.4.3',
                       'psycopg2==2.7.5',
