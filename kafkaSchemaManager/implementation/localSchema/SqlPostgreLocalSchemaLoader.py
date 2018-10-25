@@ -13,7 +13,9 @@ class SqlPostgreLocalSchemaLoader(AbstractLocalSchemaLoader):
 
     def loadLocalSchema(self):
             schema = self.databaseOps.getSchemaByName(self.schemaName)
-            loadedSchema = schema.schemaJson 
+            loadedSchema = schema.schemaJson
+            if loadedSchema["schema"] is None:
+                raise Exception("Avro schema is not found, or does not exist!")
             from ..schema.AvroSchema import AvroSchema
             localSchema = LocalSchemaHolder(loadedSchema["schemaHasBeenModified"],
                                             loadedSchema["schemaName"],

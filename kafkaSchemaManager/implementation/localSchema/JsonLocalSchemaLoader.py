@@ -15,6 +15,9 @@ class JsonLocalSchemaLoader(AbstractLocalSchemaLoader):
             from ..schema.AvroSchema import AvroSchema
             from ..schema.ComplexAvroSchema import ComplexAvroSchema
 
+            if loadedSchema["schema"] is None:
+                raise Exception("Avro schema is not found, or does not exist!")
+
             schema = None
             if type(loadedSchema["schema"] ) == list:
                 schema = ComplexAvroSchema(loadedSchema["schema"])

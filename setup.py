@@ -20,7 +20,7 @@ else:
 
 setup(
     name='kafka-avro-producer-topkrabbensteam',
-    version='1.2',
+    version='1.2.1',
 
     description='Kafka (produce messages) using Apache Avro schemas',
     long_description=long_description,

@@ -13,6 +13,9 @@ class LocalSchemaLoaderFromKafka(AbstractLocalSchemaLoader):
 
     def loadLocalSchema(self):
         schema_id,avro_schema,schema_version = self.client.get_latest_schema(self.schemaName)
+        if avro_schema is None:
+            raise Exception("Avro schema is not found, or does not exist!")
+
         from ..schema.AvroSchema import AvroSchema
         localSchema = LocalSchemaHolder(False,
                                         self.schemaName,
