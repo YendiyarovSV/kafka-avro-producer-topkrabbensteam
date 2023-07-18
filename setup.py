@@ -61,5 +61,5 @@ setup(
                       'fastavro==0.14.11',
                       'kafka-python==1.4.3',
                       'psycopg2==2.7.5',
-                      'SQLAlchemy==1.2.10'],
+                      'SQLAlchemy==1.3.0'],
 )
